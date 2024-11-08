@@ -10,33 +10,21 @@ import com.bignerdranch.andriod.criminalintent.databinding.FragmentCrimeDetailBi
 import java.util.Date
 import java.util.UUID
 
-private lateinit var binding:FragmentCrimeDetailBinding
-private lateinit var crime: Crime
-
-
 class CrimeDetailFragment : Fragment() {
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        crime = Crime(
-            id = UUID.randomUUID(),
-            title = "",
-            date = Date(),
-            isSolved = false
-
-        )
-
-    }
+    private lateinit var binding: FragmentCrimeDetailBinding
+    var crime: Crime = Crime(
+        id = UUID.randomUUID(),
+        title = "",
+        date = Date(),
+        isSolved = false
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding =
-            FragmentCrimeDetailBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentCrimeDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
